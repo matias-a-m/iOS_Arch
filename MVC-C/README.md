@@ -1,95 +1,45 @@
-# Coordinator Pattern Example
+# Rick and Morty Character List App
 
-Este es un ejemplo sencillo que ilustra el uso del patrón de coordinador en una aplicación iOS. El patrón de coordinador se utiliza para gestionar la navegación entre diferentes pantallas de la aplicación.
+Este repositorio contiene el código fuente de una aplicación de lista de personajes de Rick and Morty para iOS. La aplicación utiliza el patrón de coordinador para gestionar la navegación entre las diferentes pantallas de la aplicación y mostrar información detallada sobre cada personaje.
 
-## Contenido
+## Características
 
-- [Concepto Básico](#concepto-básico)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Uso del Coordinador](#uso-del-coordinador)
+- **Lista de Personajes:** Muestra una lista de personajes obtenidos de la [API de Rick and Morty](https://rickandmortyapi.com/).
+- **Detalles del Personaje:** Permite ver información detallada de un personaje al tocar en su celda.
 
-## Concepto Básico
+## Requisitos
 
-El patrón de coordinador se basa en la idea de tener un objeto central llamado "coordinador" que se encarga de gestionar la navegación y la transición entre diferentes controladores de vista en la aplicación. El objetivo principal es desacoplar la navegación del código de los controladores de vista, lo que facilita la reutilización y la prueba del código.
+- Xcode 12.0 o superior
+- Swift 5.3 o superior
+- Conexión a Internet para obtener datos de la API
+
+## Instalación
+
+1. Clona o descarga el repositorio en tu máquina local.
+2. Abre el proyecto en Xcode.
+3. Ejecuta la aplicación en un simulador o dispositivo iOS.
 
 ## Estructura del Proyecto
 
-La aplicación de ejemplo tiene la siguiente estructura de archivos:
+La aplicación sigue una estructura clara y utiliza el patrón de coordinador para gestionar la navegación entre las diferentes pantallas. Aquí está una breve explicación de los componentes principales:
 
-- **MainCoordinator.swift:** El coordinador principal que gestiona la navegación principal de la aplicación.
-- **FirstViewController.swift:** El primer controlador de vista que contiene un botón para navegar a la segunda vista.
-- **SecondViewController.swift:** El segundo controlador de vista al que se navega desde el primer controlador.
+- **CharacterListViewController:** Controlador de vista principal que coordina la interacción entre el modelo (datos) y la vista (UI) para la lista de personajes.
+- **ListOfCharactersAPIClient:** Cliente de la API responsable de obtener la lista de personajes desde la [API de Rick and Morty](https://rickandmortyapi.com/).
+- **ListOfCharactersTableViewDelegate:** Delegado de la UITableView que gestiona la selección de celdas y su altura.
+- **ListOfCharactersTableViewDataSource:** Fuente de datos para la UITableView que maneja la lógica de presentación de la lista de personajes.
+- **CharacterModelResponse:** Estructura que representa la respuesta de la API conteniendo la lista de personajes.
+- **CharacterModel:** Estructura que define el modelo de un personaje.
+- **CharacterListView:** Vista que contiene la tabla para mostrar la lista de personajes.
+- **CharacterListCellView:** Celda personalizada para mostrar la información de un personaje en la lista.
+- **CharacterDetailPushCoordinator:** Coordinador que gestiona la navegación a la vista de detalle de un personaje mediante la técnica de "push".
+- **CharacterDetailModalCoordinator:** Coordinador que gestiona la presentación modal de la vista de detalle de un personaje.
+- **MainCoordinator:** Coordinador principal encargado de gestionar la navegación principal de la aplicación.
 
-## Uso del Coordinador
+## Uso de Coordinadores
+
+La aplicación utiliza coordinadores para gestionar la navegación entre pantallas y mejorar la modularidad del código. Aquí hay un ejemplo de cómo se utiliza un coordinador principal:
 
 ```swift
-// Coordinator Protocol
-protocol Coordinator {
-    var navigationController: UINavigationController? { get set }
-    func start()
-}
-
-// First Coordinator
-class MainCoordinator: Coordinator {
-    var navigationController: UINavigationController?
-
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-
-    func start() {
-        let firstViewController = FirstViewController()
-        firstViewController.coordinator = self
-        navigationController?.pushViewController(firstViewController, animated: true)
-    }
-
-    func navigateToSecondView() {
-        let secondCoordinator = SecondCoordinator(navigationController: navigationController)
-        secondCoordinator.start()
-    }
-}
-
-// Second Coordinator
-class SecondCoordinator: Coordinator {
-    var navigationController: UINavigationController?
-
-    init(navigationController: UINavigationController?) {
-        self.navigationController = navigationController
-    }
-
-    func start() {
-        let secondViewController = SecondViewController()
-        secondViewController.coordinator = self
-        navigationController?.pushViewController(secondViewController, animated: true)
-    }
-}
-
-// First View Controller
-class FirstViewController: UIViewController {
-    weak var coordinator: MainCoordinator?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let button = UIButton(type: .system)
-        button.setTitle("Go to Second View", for: .normal)
-        button.addTarget(self, action: #selector(goToSecondView), for: .touchUpInside)
-
-        view.addSubview(button)
-    }
-
-    @objc func goToSecondView() {
-        coordinator?.navigateToSecondView()
-    }
-}
-
-// Second View Controller
-class SecondViewController: UIViewController {
-    weak var coordinator: SecondCoordinator?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.backgroundColor = .blue
-    }
-}
+let navigationController = UINavigationController()
+let mainCoordinator = MainCoordinator(navigationController: navigationController)
+mainCoordinator.start()
