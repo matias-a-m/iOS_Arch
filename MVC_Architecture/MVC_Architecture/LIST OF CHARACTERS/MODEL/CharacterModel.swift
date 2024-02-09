@@ -1,3 +1,5 @@
+import Foundation
+
 // MARK: - Modelo de Datos
 
 /// Estructura que representa un modelo de personaje.

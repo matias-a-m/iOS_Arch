@@ -36,7 +36,7 @@ final class ListOfCharactersTableViewDataSource: NSObject, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Obtén una celda reutilizable del identificador "CharacterListCellView".
+        // Obtiene una celda reutilizable del identificador "CharacterListCellView".
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterListCellView", for: indexPath) as! CharacterListCellView
 
         // Recupera el personaje en el índice de fila actual.
