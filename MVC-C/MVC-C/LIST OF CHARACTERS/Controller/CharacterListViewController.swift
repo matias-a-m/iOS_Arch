@@ -17,7 +17,9 @@ class CharacterListViewController: UIViewController {
     // Propiedad para el delegado de la UITableView (patrón MVC: Controlador)
     private var tableViewDelegate: ListOfCharactersTableViewDelegate?
     
-    var characterCoordinator: CharacterDetailPushCoordinator?
+    var characterPushCoordinator: CharacterDetailPushCoordinator?
+    
+    var characterModalCoordinator: CharacterDetailModalCoordinator?
 
     // Método llamado al cargar la vista
     override func loadView() {
@@ -49,7 +51,9 @@ class CharacterListViewController: UIViewController {
             }
             let characterModel = dataSource.characters[index]
             
-            let characterDetail = CharacterDetailPushCoordinator(characterModel: characterModel, navigationController: self?.navigationController)
+//            let characterDetail = CharacterDetailPushCoordinator(characterModel: characterModel, navigationController: self?.navigationController)
+             
+            let characterDetail = CharacterDetailModalCoordinator(characterModel: characterModel, viewController: self)
              
             characterDetail.start()
         }

@@ -25,6 +25,8 @@
 		E3BED1102B75397F00A06DE8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BED10F2B75397F00A06DE8 /* Coordinator.swift */; };
 		E3BED1122B75461C00A06DE8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BED1112B75461C00A06DE8 /* MainCoordinator.swift */; };
 		E3BED1142B75688600A06DE8 /* CharacterDetailPushCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BED1132B75688600A06DE8 /* CharacterDetailPushCoordinator.swift */; };
+		E3BED1162B75B1CC00A06DE8 /* CharacterDetailModalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BED1152B75B1CC00A06DE8 /* CharacterDetailModalCoordinator.swift */; };
+		E3BED1182B75B85700A06DE8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E3BED1172B75B85700A06DE8 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		E3BED10F2B75397F00A06DE8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E3BED1112B75461C00A06DE8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E3BED1132B75688600A06DE8 /* CharacterDetailPushCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPushCoordinator.swift; sourceTree = "<group>"; };
+		E3BED1152B75B1CC00A06DE8 /* CharacterDetailModalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailModalCoordinator.swift; sourceTree = "<group>"; };
+		E3BED1172B75B85700A06DE8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		E3BED0D42B7447B300A06DE8 = {
 			isa = PBXGroup;
 			children = (
+				E3BED1172B75B85700A06DE8 /* README.md */,
 				E3BED0DF2B7447B400A06DE8 /* MVC-C */,
 				E3BED0DE2B7447B400A06DE8 /* Products */,
 			);
@@ -171,6 +176,7 @@
 				E3BED10F2B75397F00A06DE8 /* Coordinator.swift */,
 				E3BED1112B75461C00A06DE8 /* MainCoordinator.swift */,
 				E3BED1132B75688600A06DE8 /* CharacterDetailPushCoordinator.swift */,
+				E3BED1152B75B1CC00A06DE8 /* CharacterDetailModalCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 			files = (
 				E3BED0ED2B7447B500A06DE8 /* LaunchScreen.storyboard in Resources */,
 				E3BED0EA2B7447B500A06DE8 /* Assets.xcassets in Resources */,
+				E3BED1182B75B85700A06DE8 /* README.md in Resources */,
 				E3BED0E82B7447B400A06DE8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +262,7 @@
 				E3BED0E52B7447B400A06DE8 /* CharacterListViewController.swift in Sources */,
 				E3BED1002B744E9D00A06DE8 /* CharacterListCellViewTableViewCell.swift in Sources */,
 				E3BED0FE2B744DF400A06DE8 /* CharacterListView.swift in Sources */,
+				E3BED1162B75B1CC00A06DE8 /* CharacterDetailModalCoordinator.swift in Sources */,
 				E3BED0E12B7447B400A06DE8 /* AppDelegate.swift in Sources */,
 				E3BED0FC2B744CF000A06DE8 /* CharacterModel.swift in Sources */,
 				E3BED1042B7478F300A06DE8 /* ListOfCharactersTableViewDataSource.swift in Sources */,
